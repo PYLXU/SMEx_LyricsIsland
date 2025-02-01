@@ -1,0 +1,10 @@
+{
+  "packageId": "lyricsIsland",
+  "extName": "lyricsIsland",
+  "uiName": "ClassIsland扩展服务端-lyricsIsland",
+  "version": "1.0.0",
+  "entries": [
+    "function.js"
+  ]
+}
+  
