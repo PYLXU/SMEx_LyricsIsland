@@ -1,8 +1,9 @@
+let lastPost = null;
 const updateLyrics = () => {
   const currentLyricsElement = document.querySelector('.SimLRC>.active');
   const currentLyrics = currentLyricsElement ? currentLyricsElement.firstChild.textContent : '';
   const currentLyricsTranslate = currentLyricsElement && currentLyrics !== currentLyricsElement.lastChild.textContent ? currentLyricsElement.lastChild.textContent : '';
-  const currentMusicName = document.querySelector('.musicInfo > div')?.innerHTML + " - " + document.querySelector('.musicInfo > b')?.innerHTML;
+  let currentMusicName = document.querySelector('.musicInfo > div')?.innerHTML + " - " + document.querySelector('.musicInfo > b')?.innerHTML;
   // console.log('Lyrics:', currentLyrics);
   // console.log('Translation:', currentLyricsTranslate);
 
@@ -38,8 +39,6 @@ const waitForElement = async (selector) => {
   }
   return document.querySelector(selector);
 };
-
-let lastPost = null;
 
 const initObserver = async () => {
   const parentElement = await waitForElement('.SimLRC');
