@@ -2,9 +2,17 @@ const updateLyrics = () => {
   const currentLyricsElement = document.querySelector('.SimLRC>.active');
   const currentLyrics = currentLyricsElement ? currentLyricsElement.firstChild.textContent : '';
   const currentLyricsTranslate = currentLyricsElement && currentLyrics !== currentLyricsElement.lastChild.textContent ? currentLyricsElement.lastChild.textContent : '';
+  const currentMusicName = document.querySelector('.musicInfo > div')?.innerHTML + " - " + document.querySelector('.musicInfo > b')?.innerHTML;
+  // console.log('Lyrics:', currentLyrics);
+  // console.log('Translation:', currentLyricsTranslate);
 
-  console.log('Lyrics:', currentLyrics);
-  console.log('Translation:', currentLyricsTranslate);
+  if (!currentLyricsTranslate || currentLyricsTranslate == "") {
+    currentLyricsTranslate = currentMusicName;
+  }
+
+  if (lastPost === currentLyrics) {
+    return;
+  }
 
   fetch(
     `http://127.0.0.1:50063/component/lyrics/lyrics/`,
@@ -30,6 +38,8 @@ const waitForElement = async (selector) => {
   }
   return document.querySelector(selector);
 };
+
+let lastPost = null;
 
 const initObserver = async () => {
   const parentElement = await waitForElement('.SimLRC');

@@ -2,7 +2,7 @@
   "packageId": "lyricsIsland",
   "extName": "lyricsIsland",
   "uiName": "ClassIsland扩展服务端-lyricsIsland",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "entries": [
     "function.js"
   ]
